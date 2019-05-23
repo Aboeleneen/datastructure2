@@ -84,7 +84,7 @@ public class Graph implements IGraph {
 	public ArrayList<Integer> getVertices() {
 		// TODO Auto-generated method stub
 	    ArrayList<Integer> vertices = new ArrayList<>();
-	    for(int i=1;i<=size;i++) {
+	    for(int i=0;i<size;i++) {
 	    	vertices.add(i);
 	    }
 		return vertices;
@@ -124,7 +124,7 @@ public class Graph implements IGraph {
 			ArrayList<Edge> adj = adjList.get(index);
 			for(int i = 0; i < adj.size(); i++) {
 				Edge edge = adj.get(i);
-				if(distances[index] + edge.getWeight() < distances[edge.getFinish()]) {
+				if(distances[index] + edge.getWeight() < distances[edge.getFinish()]  && !checked[edge.getFinish()]) {
 					distances[edge.getFinish()] = distances[index] + edge.getWeight();
 				}
 			}
